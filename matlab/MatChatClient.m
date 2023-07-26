@@ -79,5 +79,18 @@ classdef MatChatClient < handle
                 end
             end
         end
+
+        function close(client)
+            client.Timer.stop();
+            delete(client.Timer);
+            clear(client.Timer);
+
+            fclose(client.Server);
+            delete(client.Server);
+            clear(client.Server);
+
+            delete(client);
+            clear(client);
+        end
     end
 end

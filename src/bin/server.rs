@@ -14,11 +14,6 @@ struct AppState {
     current_id: Mutex<u32>,
 }
 
-#[get("/hello/{name}")]
-async fn greet(name: web::Path<String>) -> impl Responder {
-    format!("Hello {name}!")
-}
-
 #[get("/register/{name}")]
 async fn register(data: web::Data<AppState>, name: web::Path<String>) -> impl Responder {
     println!("register!");
@@ -76,7 +71,6 @@ async fn main() -> std::io::Result<()> {
             .service(get)
             .service(send)
             .service(register)
-            .service(greet)
     })
     .bind(("0.0.0.0", 1010))?
     .run()
