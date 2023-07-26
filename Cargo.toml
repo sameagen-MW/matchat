@@ -1,0 +1,17 @@
+[package]
+name = "matchat"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "matchat"
+path = "src/lib/utils.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4"
+serde = { version = "1.0.175", features = ["derive"] }
+serde_json = "1.0.103"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+tokio = "1.29.1"
